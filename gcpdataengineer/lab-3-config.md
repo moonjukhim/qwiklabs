@@ -31,7 +31,23 @@ Topics tested:
 이 작업을 마무리 하기 위해 다음을 수행합니다.
 
 - historical_taxi_rides_raw 데이터를 정제하고 taxi_training_data를 같은 데이터셋에 생성합니다. BigQuery, DataPrep, DataFlow등을 사용하여 데이터를 정제할 수 있습니다. 학습하고 하는 대상 속성은 fare_amount입니다.
--  
+
+힌트
+
+- BQ UI에서 소스 데이터 집합을 볼 수 있으며, 먼저 서스 스키마를 숙지합니다.
+- 예측 시 확인할 수 있는 데이터에 대한 힌트로서, 예측 시간에 도착한다는 것을 보여주는 taxirides.report_prediction_data 데이터를 숙지합니다.
+
+데이터 정제 작업:
+
+- trip_distance가 0보다 커야 합니다.
+- fare_amount 금액이 작은 데이터는 제거합니다($2.5 미만).
+- 위도와 경도가 사용 사례에 적합한지 확인합니다.
+- passenger_count가 0보다 커야 합니다.
+- total_amount에는 팁이 포함되므로 tolls_amount 및 fare_amount를 대상 변수로 추가합니다.
+- 소스 데이터 집합이 크기 때문에(>1억행), 데이터 집합을 100만건 미만으로 샘플링합니다.
+- 모델에서 사용할 필드만 복사합니다(report_prediction_data는 좋은 예제입니다).
+
+
 ## Start Lab
 
 1. [1]At the top of your screen, launch your lab by clicking <span style="background-color:#34A853; font-family:Google Sans; font-weight:bold; font-size:90%; color:white; border-color:#34A853; border-radius:4px; border-width:2px; border-style:solid; outline-color:#ffffff; padding-top:5px; padding-bottom:5px; padding-left:10px; padding-right:10px">Start Lab</span>
