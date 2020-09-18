@@ -18,26 +18,15 @@ Topics tested:
 - BQML에서 모델 생성 및 최적화
 - BQML에서 예측된 데이터 생성
 
-**Prerequisites**
-
-This lab requires:
-
-- Access to a notebook computer with Wi-Fi running Microsoft Windows, Mac OS X, or Linux (Ubuntu, SuSE, or Red Hat)
-- For Microsoft Windows users: Administrator access to the computer
-- An internet browser such as Chrome, Firefox, or Internet Explorer 9 (previous versions of Internet Explorer are not supported)
-- An SSH client such as PuTTY
-
-**Duration**
-
-This lab takes approximately 30 minutes to complete.
-
 ---
 
-## Before you begin
+## 도전 과제 시나리오
 
-Take a minute to sketch out a basic architecture of this lab's solution. How will the services interact to help monitor and secure your Amazon S3 buckets? Use a pen and paper or the classroom’s whiteboard. Refer back to the Module 6 slides before you proceed to make sure your architecture is accurate.
+책상에 앉자마자 첫 번째 과제를 받게 됩니다. 요금을 예측하기 위한 BQML을 생성하려고 합니다. 데이터를 가져오고, 정제한 다음 새 데이터로 모델을 생성하고 배치 예측을 수행하여 모델 성능을 검토하고 애플리케이션 배포에 대한 진행 여부 결정을 내릴 수 있도록 합니다.
 
-## Access the AWS Management Console
+## Task 1: 훈련 데이터의 정제
+
+랩이 시작될 때 데이터 집합을 만들고 데이터를 taxirides와 historical_taxi_rides_raw 테이블에 가져왔습니다. 
 
 ## Start Lab
 
