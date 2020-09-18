@@ -1,8 +1,6 @@
 ![](https://cdn.qwiklabs.com/l0sFLZS%2BO9dGHcecgA2MrRf7u2BRusBkSVPzUDf8AUg%3D)
 # Engineer Data in Google Cloud: Challenge Lab
 
----
-
 **Overview**
 
 할당 된 시간 내에 일련의 작업을 완료해야 합니다. 단계별 지침을 따르는 대신 시나리오와 일련의 작업이 제공됩니다. 직접 완료하는 방법을 알아내야 합니다!
@@ -13,11 +11,12 @@ Challenge Lab을 수강하더라도 BigQuery 또는 데이터 엔지니어링 �
 
 **Objectives**
 
-After completing this lab, you will be able to:
+Topics tested:
 
-- Set up AWS Config to monitor Amazon S3 bucket access control lists (ACLs) and policies for compliance violations
-- Create and configure a CloudWatch Events rule that is triggered by AWS Config and subsequently triggers a Lambda function
-- Explain how to use a Lambda function to correct Amazon S3 bucket ACL policies and send notifications about out-of-compliance policies
+- 기존의 데이터로부터 BigQuery 테이블 생성
+- BigQuery, Dataprep 혹은 Dataflow를 사용하여 ML Model 생성을 위한 데이터 정제
+- BQML에서 모델 생성 및 최적화
+- BQML에서 예측된 데이터 생성
 
 **Prerequisites**
 
