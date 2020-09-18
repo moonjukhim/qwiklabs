@@ -47,7 +47,7 @@ Topics tested:
 - 소스 데이터 집합이 크기 때문에(>1억행), 데이터 집합을 100만건 미만으로 샘플링합니다.
 - 모델에서 사용할 필드만 복사합니다(`report_prediction_data`는 좋은 예제입니다).
 
-```bash
+```sql
 CREATE OR REPLACE TABLE
     taxirides.taxi_training_data AS
 SELECT
@@ -85,8 +85,23 @@ WHERE
 - TRANSFORM() 절의 특징만 모델에 전달된다는 점에 유의합니다. * EXCEPT(feature_to_leave_out)을 사용하여 명시적으로 호출하지 않고 일부 또는 모든 기능을 전달할 수 있습니다.
 - BigQuery에 있는 ST_distance()와 ST_GeogPoint() GIS 함수를 사용하여 유클리드 거리(즉, 택시가 얼마나 멀리 주행했는가)를 쉽게 계산할 수 있습니다.
 
-```python
+```sql
 ST_Distance(ST_GeogPoint(pickuplon, pickuplat), ST_GeogPoint(dropofflon, dropofflat)) AS euclidean
+```
+
+
+```sql
+CREATE OR REPLACE MODEL taxirides.fare_model
+TRANSFORM(
+  * EXCEPT(pickup_datetime),
+  ST_Distance(ST_GeogPoint(pickuplon, pickuplat), 
+  ST_GeogPoint(dropofflon, dropofflat)) AS euclidean,
+  CAST(EXTRACT(DAYOFWEEK FROM pickup_datetime) AS STRING) AS dayofweek,
+  CAST(EXTRACT(HOUR FROM pickup_datetime) AS STRING) AS hourofday
+)
+OPTIONS(input_label_cols=['fare_amount'], model_type='linear_reg') 
+AS
+SELECT * FROM taxirides.taxi_training_data
 ```
 
 ## Task3. 새로운 데이터에 대한 배치형태의 예측
@@ -94,6 +109,14 @@ ST_Distance(ST_GeogPoint(pickuplon, pickuplat), ST_GeogPoint(dropofflon, dropoff
 2015년에 수집한 모든 데이터를 얼마나 잘 예측하는지 궁금합니다. taxirides.report_prediction_data에 데이터가 존재합니다. 알려진 예측 시간이 해당 테이블에 존재합니다.
 
 ML.PREDICT를 사용하여 fare_amount를 예측하고 결과를 2015_fare_amount_predictions 테이블에 저장합니다.
+
+```sql
+CREATE OR REPLACE TABLE taxirides.2015_fare_amount_predictions
+  AS
+SELECT * FROM ML.PREDICT(MODEL taxirides.fare_model,(
+  SELECT * FROM taxirides.report_prediction_data)
+)​
+```
 
 
 ### 축하합니다!!!
