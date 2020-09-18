@@ -47,6 +47,33 @@ Topics tested:
 - 소스 데이터 집합이 크기 때문에(>1억행), 데이터 집합을 100만건 미만으로 샘플링합니다.
 - 모델에서 사용할 필드만 복사합니다(`report_prediction_data`는 좋은 예제입니다).
 
+```bash
+CREATE OR REPLACE TABLE
+    taxirides.taxi_training_data AS
+SELECT
+    (tolls_amount + fare_amount) AS fare_amount,
+    pickup_datetime,
+    pickup_longitude,
+    pickup_latitude,
+    dropoff_longitude,
+    dropoff_latitude,
+    passenger_count,
+FROM
+    taxirides.historical_taxi_rides_raw
+WHERE
+    RAND() < 0.001
+    AND trip_distance > 0
+    AND fare_amount >= 2.5
+    AND pickup_longitude > -78
+    AND pickup_longitude < -70
+    AND dropoff_longitude > -78
+    AND dropoff_longitude < -70
+    AND pickup_latitude > 37
+    AND pickup_latitude < 45
+    AND dropoff_latitude > 37
+    AND dropoff_latitude < 45
+    AND passenger_count > 0
+```
 
 ## Start Lab
 
