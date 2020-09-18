@@ -1,14 +1,15 @@
 ![](https://cdn.qwiklabs.com/l0sFLZS%2BO9dGHcecgA2MrRf7u2BRusBkSVPzUDf8AUg%3D)
 # Engineer Data in Google Cloud: Challenge Lab
-© 2020 Amazon Web Services, Inc. and its affiliates. All rights reserved. This work may not be reproduced or redistributed, in whole or in part, without prior written permission from Amazon Web Services, Inc. Commercial copying, lending, or selling is prohibited.
-
-Errors, corrections or other questions? Contact us at [*AWS Training and Certification*](https://support.aws.amazon.com/#/contacts/aws-training).
 
 ---
 
 **Overview**
 
-In this lab, you set up AWS Config to monitor your Amazon Simple Storage Service (Amazon S3) buckets for security violations. Your company wants to ensure that Amazon S3 buckets are publicly accessible. To accomplish this, use Amazon CloudWatch Events in concert with AWS Config to monitor the buckets in near-real time. If a violation is found, CloudWatch will trigger an AWS Lambda function to bring the resource back into compliance.
+할당 된 시간 내에 일련의 작업을 완료해야 합니다. 단계별 지침을 따르는 대신 시나리오와 일련의 작업이 제공됩니다. 직접 완료하는 방법을 알아내야 합니다!
+
+Challenge Lab을 수강하더라도 BigQuery 또는 데이터 엔지니어링 개념을 배우지 않습니다. 제시된 과제에 대한 솔루션을 구축하려면 과제 랩이 속한 퀘스트에서 배운 기술을 사용해야 합니다. 
+
+이 실습은 데이터 엔지니어링 퀘스트의 실습을 완료한 학생에게만 권장됩니다.
 
 **Objectives**
 
