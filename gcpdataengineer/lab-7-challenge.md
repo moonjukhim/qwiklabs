@@ -119,4 +119,4 @@ SELECT * FROM ML.PREDICT(MODEL taxirides.fare_model,(
 ```
 
 
-### 축하합니다!!!
+### Congratulations!
