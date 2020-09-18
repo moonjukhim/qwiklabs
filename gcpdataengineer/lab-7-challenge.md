@@ -75,8 +75,19 @@ WHERE
     AND passenger_count > 0
 ```
 
-## Start Lab
+## Task2. BQML 모델 생성 (taxirides.fare_model)
 
+`taxirides.taxi_training_data`의 데이터를 기반으로 `fare_amount`을 예측하는 BQML 모델을 생성합니다. 모델의 이름은 `taxirides.fare_model`로 설정하며, 모델의 성능은 10이하의 RMSE가 되도록 합니다.
+
+힌트:
+
+- TRANSFORM() 절을 사용하여 데이터 변환에 대한 부분을 캡슐화 합니다.
+- TRANSFORM() 절의 특징만 모델에 전달된다는 점에 유의합니다. * EXCEPT(feature_to_leave_out)을 사용하여 명시적으로 호출하지 않고 일부 또는 모든 기능을 전달할 수 있습니다.
+- BigQuery에 있는 ST_distance()와 ST_GeogPoint() GIS 함수를 사용하여 유클리드 거리(즉, 택시가 얼마나 멀리 주행했는가)를 쉽게 계산할 수 있습니다.
+
+```python
+ST_Distance(ST_GeogPoint(pickuplon, pickuplat), ST_GeogPoint(dropofflon, dropofflat)) AS euclidean
+```
 1. [1]At the top of your screen, launch your lab by clicking <span style="background-color:#34A853; font-family:Google Sans; font-weight:bold; font-size:90%; color:white; border-color:#34A853; border-radius:4px; border-width:2px; border-style:solid; outline-color:#ffffff; padding-top:5px; padding-bottom:5px; padding-left:10px; padding-right:10px">Start Lab</span>
 
 This will start the process of provisioning your lab resources. An estimated amount of time to provision your lab resources will be displayed. You must wait for your resources to be provisioned before continuing.
