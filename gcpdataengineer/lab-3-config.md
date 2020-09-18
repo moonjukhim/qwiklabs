@@ -28,6 +28,10 @@ Topics tested:
 
 랩이 시작될 때 데이터 집합을 만들고 데이터를 taxirides와 historical_taxi_rides_raw 테이블에 가져왔습니다. 
 
+이 작업을 마무리 하기 위해 다음을 수행합니다.
+
+- historical_taxi_rides_raw 데이터를 정제하고 taxi_training_data를 같은 데이터셋에 생성합니다. BigQuery, DataPrep, DataFlow등을 사용하여 데이터를 정제할 수 있습니다. 학습하고 하는 대상 속성은 fare_amount입니다.
+-  
 ## Start Lab
 
 1. [1]At the top of your screen, launch your lab by clicking <span style="background-color:#34A853; font-family:Google Sans; font-weight:bold; font-size:90%; color:white; border-color:#34A853; border-radius:4px; border-width:2px; border-style:solid; outline-color:#ffffff; padding-top:5px; padding-bottom:5px; padding-left:10px; padding-right:10px">Start Lab</span>
